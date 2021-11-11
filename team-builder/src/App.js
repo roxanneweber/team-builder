@@ -17,7 +17,16 @@ function App() {
 	});
 
 	const [teams, setTeams] = useState(teamsList);
-	const submit = (evt) => {};
+	const submit = (evt) => {
+		evt.preventDefault();
+		const newTeam = {
+			teamName: formValues.teamName.trim(),
+			teamType: formValues.teamType.trim(),
+			teamRank: formValues.teamRank,
+		};
+		setTeams(teams.concat(newTeam));
+		setFormValues({ teamName: '', teamType: '', teamRank: '' });
+	};
 	const change = (evt) => {
 		console.log(evt.target.name, evt.target.value);
 		const { name, value } = evt.target;
