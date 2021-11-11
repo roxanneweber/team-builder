@@ -18,7 +18,11 @@ function App() {
 
 	const [teams, setTeams] = useState(teamsList);
 	const submit = (evt) => {};
-	const change = (evt) => {};
+	const change = (evt) => {
+		console.log(evt.target.name, evt.target.value);
+		const { name, value } = evt.target;
+		setFormValues({ ...formValues, [name]: value });
+	};
 
 	return (
 		<div className='container'>
